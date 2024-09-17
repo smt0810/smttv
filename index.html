@@ -2,42 +2,50 @@
 <html>
 
 <head>
-      <style type="text/css"> 
-        html { 
-            overflow: auto; 
-        } 
-          
-        html, 
-        body, 
-        div, 
-        iframe { 
-            margin: 0px; 
-            padding: 0px; 
-            height: 100%; 
-            border: none; 
-        } 
-          
-        iframe { 
-            display: block; 
-            width: 100%; 
-            border: none; 
-            overflow-y: auto; 
-            overflow-x: hidden; 
-        } 
-    </style> 
-    <script>
-        // Refresh the page every 5 seconds (5000 milliseconds)
+    <style type="text/css">
+        html {
+            overflow: auto;
+        }
+
+        html,
+        body,
+        div,
+        iframe {
+            margin: 0px;
+            padding: 0px;
+            height: 85vh;
+            width: 100%;
+            border: none;
+        }
+
+        iframe {
+            overflow-x:hidden;
+            overflow-y:unset
+        }
+        body {
+            background-color:black;
+        }
+
+        a."weatherwidget-io {
+        height: 30vh;
+        width:100%;
+        background-color:blue;
+        }
+    </style>
+    <script>// Refresh the page every 60 min
         setTimeout(function () {
             location.reload();
-        }, 60000);
-    </script>
+        }, 1000*60*60);</script>
+    <script async src="https://app3.weatherwidget.org/js/?id=ww_49b4a7394acc4"></script>
 </head>
-
 <body>
-<iframe src="https://docs.google.com/presentation/d/1rpI9NxbYFE67DhF0YNK3mdrG-x5kArrjJEveuyFLM2U/embed?start=true&loop=true&delayms=5000" frameborder="0" width="1440" height="839" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <a class="weatherwidget-io" href="https://forecast7.com/he/32d0734d82/ramat-gan/" data-label_1="מזג אוויר" data-label_2="רמת גן" data-theme="original">מזג אוויר רמת גן</a>
+    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');</script>
+    <div>
+        <iframe src="https://docs.google.com/presentation/d/1rpI9NxbYFE67DhF0YNK3mdrG-x5kArrjJEveuyFLM2U/embed?start=true&loop=true&delayms=5000&rm=minimal"
+                frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+        </iframe>
+    </div>
 </body>
 
 </html>
-
-
-
