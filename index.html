@@ -5,24 +5,9 @@
     <title>בנייני סמארט</title>
 
     <style type="text/css">
-        html {
-            overflow: auto;
-        }
-
-        html,
-        body,
-        div,
-        iframe {
+        body {
             margin: 0px;
             padding: 0px;
-            height: 85vh;
-            width: 100%;
-            border: none;
-        }
-
-        iframe {
-            overflow-x: hidden;
-            overflow-y: hidden;
         }
 
         a.weatherwidget-io {
@@ -31,25 +16,42 @@
             background-color: blue;
         }
 
-        div.fixed {
+        .clock {
             position: fixed;
-            bottom: 0;
-            right: 74vw;
+            bottom: 50vh;
+            right: 83vw;
             width: 160px;
         }
 
-        div.mivzakim {
+        .mivzakim {
             position: fixed;
-            top: 40vh;
-            right: 76.5vw;
-            width: 160px;
-            height: 200px;
+            top: 70vh;
+            right: 45vw;
+            width: 30vw;
+            height: 25vh;
         }
 
-        div.mivzakim iframe {
-            height: 150px;
-            width: 220px;
+        .mivzakim iframe {
+            height: 100%;
+            width: 100%;
             border-radius: 16px;
+        }
+
+        .fullscreen-iframe {
+            width: 100%;
+            /* Full width of the viewport */
+            height: 85vh;
+            /* 85% height of the viewport (leaving 15% at the top) */
+            border: none;
+            /* Remove borders */
+            position: fixed;
+            /* Fix it to the viewport */
+            top: 15vh;
+            /* Start 15% from the top */
+            left: 0;
+            padding: 0px;
+            margin: 0px;
+            transform: scaleX(1.38);
         }
     </style>
     <script>// Refresh the page every 60 min
@@ -61,23 +63,20 @@
 </head>
 
 <body>
+    <iframe class="fullscreen-iframe"
+        src="https://docs.google.com/presentation/d/1rpI9NxbYFE67DhF0YNK3mdrG-x5kArrjJEveuyFLM2U/embed?start=true&loop=true&delayms=10000&rm=minimal"
+        frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+    </iframe>
     <a class="weatherwidget-io" href="https://forecast7.com/he/32d0734d82/ramat-gan/" data-label_1="מזג אוויר"
         data-label_2="רמת גן" data-theme="original">מזג אוויר רמת גן</a>
     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');</script>
-    <div>
-        <iframe
-            src="https://docs.google.com/presentation/d/1rpI9NxbYFE67DhF0YNK3mdrG-x5kArrjJEveuyFLM2U/embed?start=true&loop=true&delayms=10000&rm=minimal"
-            frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
-        </iframe>
-    </div>
-
-    <div class="fixed">
+    <div class="clock">
         <iframe src="https://free.timeanddate.com/clock/i9lx45wl/n676/szw160/szh160/cf100/hnce1ead6/mqs2"
             frameborder="0" width="160" height="160"></iframe>
     </div>
     <div class="mivzakim">
         <iframe linkunderline="NO" width="300" scrolling="no"
-            src="https://ticker.mivzakim.net/ticker/category/1?bgcolor=88b4dd&speed=5000&linkcolor=ffffff"></iframe>
+            src="https://ticker.mivzakim.net/ticker/category/1?bgcolor=88b4dd&speed=5000&linkcolor=ffffff&fontsize=20"></iframe>
     </div>
 </body>
 
