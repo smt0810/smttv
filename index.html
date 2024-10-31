@@ -10,17 +10,28 @@
             padding: 0px;
         }
 
-        a.weatherwidget-io {
-            height: 10vh;
-            width: 100%;
-            background-color: blue;
-        }
-
         .clock {
             position: fixed;
             bottom: 70vh;
             right: 87vw;
             width: 160px;
+        }
+
+        a.weatherwidget-io {
+            height: 10vh;
+            width: 100%;
+        }
+
+        .fullscreen-iframe {
+            position: fixed;
+            height: 75vh;
+            bottom: 15vh;
+            width: 100%;
+            border: none;
+            left: 0;
+            padding: 0px;
+            margin: 0px;
+            /*transform: scaleX(1);*/
         }
 
         .mivzakim {
@@ -29,30 +40,11 @@
             right: 0vw;
             width: 100%;
             height: 15vh;
-            margin: 0px;
-            padding: 0px;
         }
 
         .mivzakim iframe {
             height: 100%;
             width: 100%;
-        }
-
-        .fullscreen-iframe {
-            width: 100%;
-            /* Full width of the viewport */
-            height: 75vh;
-            /* 85% height of the viewport (leaving 15% at the top) */
-            border: none;
-            /* Remove borders */
-            position: fixed;
-            /* Fix it to the viewport */
-            bottom: 15vh;
-            /* Start 15% from the top */
-            left: 0;
-            padding: 0px;
-            margin: 0px;
-            transform: scaleX(1);
         }
     </style>
     <script>// Refresh the page every 60 min
