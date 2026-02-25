@@ -12,14 +12,15 @@
 
         .clock {
             position: fixed;
-            bottom: 67vh;
-            right: 84vw;
+            bottom: 0;
+            left: 0;
             width: 160px;
         }
 
         a.weatherwidget-io {
-            height: 15vh;
             width: 100%;
+            padding: 0px;
+            margin: 0px;
             background: rgb(29, 78, 143);
         }
 
@@ -66,13 +67,16 @@
     <a class="weatherwidget-io" href="https://forecast7.com/he/32d0734d82/ramat-gan/" data-label_1="מזג אוויר"
         data-label_2="רמת גן" data-theme="original">מזג אוויר רמת גן</a>
     <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = 'https://weatherwidget.io/js/widget.min.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'weatherwidget-io-js');</script>
-    <div class="clock">
-        <iframe src="https://free.timeanddate.com/clock/i9lx45wl/n676/szw160/szh160/cf100/hnce1ead6/mqs2"
-            frameborder="0" width="160" height="160"></iframe>
-    </div>
+
     <div class="mivzakim">
         <iframe linkunderline="NO" width="300" scrolling="no"
             src="https://ticker.mivzakim.net/ticker/category/1?bgcolor=1d588f&speed=5000&linkcolor=ffffff&fontsize=24"></iframe>
+    </div>
+    <div class="clock">
+        <iframe scrolling="no" frameborder="no" clocktype="html5"
+            style="overflow:hidden;border:0;margin:0;padding:0;width:380px;height:80px;"
+            src="https://www.clocklink.com/html5embed.php?clock=047&timezone=Israel_Jerusalem&color=white&size=280&Title=&Message=&Target=&From=2026,1,1,0,0,0&Color=white">
+        </iframe>
     </div>
 </body>
 
