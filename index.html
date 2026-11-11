@@ -104,7 +104,9 @@
             src="https://ticker.mivzakim.net/ticker/category/1?bgcolor=1d588f&speed=5000&linkcolor=ffffff&fontsize=24"></iframe>
     </div>
 
-    <!-- Background lobby music: public-domain classical recordings, see music/SOURCES.md -->
+    <!-- Background lobby music: public-domain classical recordings, see music/SOURCES.md.
+         The enable button is hidden (SHOW_ENABLE_BUTTON = false below); set the flag to
+         true to restore it. Any first tap/key press on the page enables sound anyway. -->
     <button id="music-enable" type="button" aria-label="הפעל מוסיקה">&#128266; הפעל מוסיקה</button>
     <audio id="lobby-music" preload="auto"></audio>
     <script>
@@ -117,6 +119,7 @@
                 'music/05-beethoven-moonlight-1st.mp3'
             ];
             var VOLUME = 0.35;
+            var SHOW_ENABLE_BUTTON = false; // one-line restore: set true to show the "הפעל מוסיקה" button again
             var audio = document.getElementById('lobby-music');
             var enableBtn = document.getElementById('music-enable');
             var index = 0;
@@ -129,7 +132,7 @@
             }
 
             function showEnableButton(show) {
-                enableBtn.style.display = show ? 'block' : 'none';
+                enableBtn.style.display = (show && SHOW_ENABLE_BUTTON) ? 'block' : 'none';
             }
 
             function startPlayback() {
