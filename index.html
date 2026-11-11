@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <title>בנייני סמארט</title>
 
     <style type="text/css">
@@ -59,6 +60,21 @@
             width: 98%;
             border-style: none;
         }
+
+        #music-enable {
+            display: none;
+            position: fixed;
+            left: 16px;
+            bottom: calc(15vh + 16px);
+            z-index: 9999;
+            background: rgba(29, 88, 143, 0.92);
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 18px;
+            padding: 12px 20px;
+            font-size: 22px;
+            cursor: pointer;
+        }
     </style>
     <script>// Refresh the page every 60 min
         setTimeout(function () {
@@ -87,6 +103,84 @@
         <iframe linkunderline="NO" width="300" scrolling="no"
             src="https://ticker.mivzakim.net/ticker/category/1?bgcolor=1d588f&speed=5000&linkcolor=ffffff&fontsize=24"></iframe>
     </div>
+
+    <!-- Background lobby music: public-domain classical recordings, see music/SOURCES.md -->
+    <button id="music-enable" type="button" aria-label="הפעל מוסיקה">&#128266; הפעל מוסיקה</button>
+    <audio id="lobby-music" preload="auto"></audio>
+    <script>
+        (function () {
+            var PLAYLIST = [
+                'music/01-satie-gymnopedie-1.mp3',
+                'music/02-chopin-nocturne-op9-no2.mp3',
+                'music/03-schumann-traumerei.mp3',
+                'music/04-bach-air-on-g-string.mp3',
+                'music/05-beethoven-moonlight-1st.mp3'
+            ];
+            var VOLUME = 0.35;
+            var audio = document.getElementById('lobby-music');
+            var enableBtn = document.getElementById('music-enable');
+            var index = 0;
+
+            audio.volume = VOLUME;
+
+            function loadTrack(i) {
+                index = ((i % PLAYLIST.length) + PLAYLIST.length) % PLAYLIST.length;
+                audio.src = PLAYLIST[index];
+            }
+
+            function showEnableButton(show) {
+                enableBtn.style.display = show ? 'block' : 'none';
+            }
+
+            function startPlayback() {
+                var p = audio.play();
+                if (p && typeof p.catch === 'function') {
+                    p.then(function () {
+                        if (!audio.muted) { showEnableButton(false); }
+                    }).catch(function () {
+                        /* Autoplay with sound blocked: play muted so the playlist
+                           keeps its place, and wait for one user gesture. */
+                        audio.muted = true;
+                        audio.play().catch(function () {});
+                        showEnableButton(true);
+                    });
+                }
+            }
+
+            function enableSound() {
+                audio.muted = false;
+                audio.volume = VOLUME;
+                audio.play().catch(function () {});
+                showEnableButton(false);
+            }
+
+            enableBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                enableSound();
+            });
+            /* Any first interaction with the TV (remote click, touch, key) enables sound. */
+            ['click', 'touchstart', 'keydown'].forEach(function (evt) {
+                document.addEventListener(evt, function once() {
+                    if (audio.muted || audio.paused) { enableSound(); }
+                    document.removeEventListener(evt, once);
+                });
+            });
+
+            audio.addEventListener('ended', function () {
+                loadTrack(index + 1);
+                audio.play().catch(function () {});
+            });
+            audio.addEventListener('error', function () {
+                /* Skip a track that fails to load so the playlist never stalls. */
+                loadTrack(index + 1);
+                audio.play().catch(function () {});
+            });
+
+            loadTrack(0);
+            showEnableButton(false);
+            startPlayback();
+        })();
+    </script>
 </body>
 
 </html>
