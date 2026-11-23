@@ -17,4 +17,4 @@ TV browser (Safari does not decode OGG Vorbis).
 
 | File | Note |
 | --- | --- |
-| nadav_ai.mp3 | Supplied by Nir on 2026-11-23 (15:00, MP3 128 kbps). Origin and license not yet verified - the file name suggests an AI-generated track. Unlike the public-domain classical tracks above, its licensing status for playback in a public lobby is unconfirmed. |
+| nadav_ai.mp3 | Supplied by Nir on 2026-11-23 (15:00, MP3 128 kbps). AI-generated track; Nir confirmed the origin and approved it for lobby playback (2026-11-23). |
