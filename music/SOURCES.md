@@ -12,3 +12,9 @@ pages below.
 
 Converted from OGG Vorbis to MP3 128 kbps for playback compatibility with any
 TV browser (Safari does not decode OGG Vorbis).
+
+## User-supplied tracks
+
+| File | Note |
+| --- | --- |
+| nadav_ai.mp3 | Supplied by Nir on 2026-11-23 (15:00, MP3 128 kbps). AI-generated track; Nir confirmed the origin and approved it for lobby playback (2026-11-23). |
